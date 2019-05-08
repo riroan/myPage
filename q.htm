@@ -1,0 +1,160 @@
+<html>
+<head>
+	<title>미분과 적분</title>
+
+
+
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="400">
+    <tr>
+        <td width="700" height="68">
+
+
+<SCRIPT LANGUAGE="Javascript">
+
+var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+var EnableRightClick = 0;
+if(isNS) 
+document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+
+function mischandler(){
+  if(EnableRightClick==1){ return true; }
+  else {return false; }
+}
+
+function mousehandler(e){
+  if(EnableRightClick==1){ return true; }
+  var myevent = (isNS) ? e : event;
+  var eventbutton = (isNS) ? myevent.which : myevent.button;
+  if((eventbutton==2)||(eventbutton==3)) return false;
+}
+
+function keyhandler(e) {
+  var myevent = (isNS) ? e : window.event;
+  if (myevent.keyCode==96)
+    EnableRightClick = 1;
+  return;
+}
+
+document.oncontextmenu = mischandler;
+document.onkeypress = keyhandler;
+document.onmousedown = mousehandler;
+document.onmouseup = mousehandler;
+//
+</script>
+<script language="javascript">
+var delay=30  //시간설정
+var correctAnswers=new Array("b","a","c","b","b")   //정답
+
+var q_num=1 
+var timer 
+var layer 
+var clock=delay 
+var score=0 
+
+function show_question(){
+	if (layer=eval("document.all.question"+q_num)){
+		layer.style.display="inline" 
+		document.all.timeLeft.innerHTML=clock 
+		hide_question() 
+	} else {
+		document.all.timeLeft.innerHTML=0 
+		document.all.quizScore.innerHTML="당신은 "+(q_num-1)+"문제중 "+score+"개를 맞췄습니다." 
+		document.all.quizScore.style.display="inline" 
+	}
+}
+
+function hide_question(){
+	if (clock>0) {
+		document.all.timeLeft.innerHTML=clock 
+		clock-- 
+		timer=setTimeout("hide_question()",1000) 
+	} else {
+		clearTimeout(timer) 
+		document.all.answerBoard.innerHTML=" " 
+		clock=delay 
+		layer.style.display="none" 
+		q_num++ 
+		show_question() 
+	}
+}
+
+function check_answer(answer){
+	if (correctAnswers[q_num-1]==answer){
+		score++ 
+		document.all.answerBoard.innerHTML="<font color=blue><b>정답입니다.</b></font>" 
+	} else {
+		document.all.answerBoard.innerHTML="<font color=red><b>땡! 틀렸습니다.</b></font>" 
+	}
+	clock=0 
+	clearTimeout(timer) 
+	timer=setTimeout("hide_question()",700) 
+}
+
+window.onload=show_question 
+</script>
+</head>
+
+<body>
+
+<br>
+<br>
+<br>
+<br>
+
+제한시간 : <B><span id="timeLeft"></span></B> 초<br>
+<br>
+<div id="answerBoard"> </div>
+<br>
+
+<div id="question1" style="display:none">
+	<b>1. 다음 중 수학자가 아닌 사람은?</b><br>
+	<a href="javascript:void(0)" onclick="check_answer('a')">a) 가우스</a><br>
+	<a href="javascript:void(0)" onclick="check_answer('b')">b) 이순신</a><br>
+	<a href="javascript:void(0)" onclick="check_answer('c')">c) 피타고라스</a><br>
+	<a href="javascript:void(0)" onclick="check_answer('d')">d) 데카르트</a><br>
+</div>
+
+<div id="question2" style="display:none">
+	<b>2. '미분과 적분'에 어울리지 않는 단어는?</b><br>
+<a href="javascript:void(0)" onclick="check_answer('a')">a) 벡터</a><br>
+<a href="javascript:void(0)" onclick="check_answer('b')">b) 극한</a><br>
+<a href="javascript:void(0)" onclick="check_answer('c')">c) 함수</a><br>
+<a href="javascript:void(0)" onclick="check_answer('d')">d) 적분</a><br>
+</div>
+
+<div id="question3" style="display:none">
+<b>3. 다음 중 초월함수가 아닌 것은?</b><br>
+<a href="javascript:void(0)" onclick="check_answer('a')">a) 삼각함수</a><br>
+<a href="javascript:void(0)" onclick="check_answer('b')">b) 지수함수</a><br>
+<a href="javascript:void(0)" onclick="check_answer('c')">c) 유리함수</a><br>
+<a href="javascript:void(0)" onclick="check_answer('d')">d) 로그함수</a><br>
+</div>
+
+<div id="question4" style="display:none">
+<b>4. 다음 중 의미하는 바가 다른 나머지 하나는?</b><br>
+                     <a href="javascript:void(0)" onclick="check_answer('a')">a) 순간변화율</a><br>
+                     <a href="javascript:void(0)" onclick="check_answer('b')">b) 적분값</a><br>
+                     <a href="javascript:void(0)" onclick="check_answer('c')">c) 접선의 기울기</a><br>
+                     <a href="javascript:void(0)" onclick="check_answer('d')">d) 미분계수</a><br>
+</div>
+
+<div id="question5" style="display:none">
+<b>                5. 이 페이지의 제작자는 누구를 제일 닮았는가?</b><br>
+                     <a href="javascript:void(0)" onclick="check_answer('a')">a) 원숭이</a><br>
+                     <a href="javascript:void(0)" onclick="check_answer('b')">b) 장동건</a><br>
+                     <a href="javascript:void(0)" onclick="check_answer('b')">c) 원빈</a><br>
+                     <a href="javascript:void(0)" onclick="check_answer('b')">d) 박보검</a><br>
+</div>
+
+<div id="quizScore" style="display:none">
+</div>
+
+
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
+

@@ -1,0 +1,196 @@
+﻿<html>
+
+<head>
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p><a href="src/new.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">미분이란?</span></font></p>
+<table border="1" align="center" cellspacing="0" width="700" bordercolordark="white" bordercolorlight="black">
+    <tr>
+        <td width="345">
+            <p align="center"><b><a href="8.htm" target="_main">미분법 공식</a></b></p>
+        </td>
+    </tr>
+</table>
+<table align="center" cellpadding="0" cellspacing="0" width="700">
+    <tr>
+        <td width="1881">
+
+            <html>
+<head>
+
+<script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1)평균변화율</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><I>y</I> = <I>f</I>(<I>x</I>)에 대해 <I>x</I>의 증가량 <span style="mso-fareast-font-family:함초롬바탕;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;">Δ</span><I>x</I>에 대한<I>y</I>의 증가량<span style="mso-fareast-font-family:함초롬바탕;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;">Δ</span><I>y</I>의 비율인<img src="images/dp1.jpg" width="160" height="168" border="0" align="right"></P>
+            <P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> <img src="images/d1.jpg" width="228" height="30" border="0">를 함수<I>y</I> = <I>f</I>(<I>x</I>)의 평균변화율이라 한다. 기하학적으로는 평균변화율은 오른쪽 그림에서 직선 <SPAN class="word_dic en">PQ</SPAN>의 기울기를 뜻한다.</P>
+<br>
+<br>
+<br>
+<br>
+<br>
+	</div>
+
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2)순간변화율</B></div>
+	<div id="sc2" class="switchcontent">
+	<p><I>y</I> = <I>f</I>(<I>x</I>)에 대하여 <I>x</I>의 값이 <I>a</I>에서 <I>a</I> + ?<I>x</I>까지 변할 때의 평균 변화율의 ?<I>x</I> → 0일 때의 극한값</p>
+            <p><img src="images/d2.jpg" width="194" height="30" border="0">를 함수<I>y</I> = <I>f</I>(<I>x</I>)의 <I>x</I> = <I>a</I>에서의 변화율 또는 미분계수라고 한다. 기호로는 다음과 같이 나타낸다.<img src="images/dp2.jpg" width="186" height="168" border="0" align="right"></p>
+            <p><img src="images/d3.jpg" width="176" height="40" border="0"></p>
+            <p>즉, <img src="images/d4.jpg" width="145" height="30" border="0">를 <I>x</I> = <I>a</I>에서의 미분계수라고 하고 <I>f</I>′(<I>a</I>)값이 존재하면 <I>y</I> = <I>f</I>(<I>x</I>)는 <I>x</I> = <I>a</I>에서 미분가능하다고 한다. 미분계수는 기하학적으로 <I>x</I> = <I>a</I>에서의 접선의 기울기를 뜻한다.</p><br>
+	</div>
+
+<div onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>3)접선의 기울기</B></div>
+	<div id="sc3" class="switchcontent">
+	<p>접선의 기울기는 미분계수로 정해진다. 곡선 위의 어느 점에서 접선이 존재하지 않음은 미분계수가 존재하지 않는다는 뜻이다.</p><br>
+	</div>
+
+
+<div onClick="expandcontent(this, 'sc4')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>4)미분가능성과 연속성</B></div>
+	<div id="sc4" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">함수 <I>y</I> = <I>f</I>(<I>x</I>)가 <I>x</I> = <I>a</I>에서 미분가능하면 <I>y</I> = <I>f</I>(<I>x</I>)는 <I>x</I> = <I>a</I>에서 연속이다. 역은 성립하지 않는다.</P>
+	</div>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

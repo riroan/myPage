@@ -1,0 +1,200 @@
+﻿<html>
+
+<head>
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p align="left"><a href="src/new.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">함수의 극한</span></font></p>
+<table border="1" align="center" cellspacing="0" width="700" bordercolordark="white" bordercolorlight="black">
+    <tr>
+        <td width="1881">
+            <p align="center"><b><a href="fomula.htm" target="_main">함수의 극한 공식</a></b></p>
+        </td>
+    </tr>
+</table>
+<table cellpadding="0" cellspacing="0" width="700" align="center">
+    <tr>
+        <td width="1881">            <div align="left">
+
+
+
+
+
+<html>
+<head>
+
+<script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1)함수의 수렴</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" align="left">함수의 수렴 : 함수<I>f</I>(<I>x</I>)에서 <I>x</I>가 <I>a</I>에 한없이 가까워질 때(<I>x</I> ≠ <I>a</I>),<I>f</I>(<I>x</I>)의 </p>
+                <P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" align="left">값이 일정한 값 <I>α</I>에<img src="images/limit.jpg" width="165" height="157" border="0" align="right"> 한없이 가까워지면 함수<I>f</I>(<I>x</I>)는 <I>α</I>에 수렴한다고 하고 다음과 같이 나타낸다.<BR><img src="images/lim.jpg" width="75" height="24" border="0">또는 <I>x</I> → <I>a</I>일때 <I>f</I>(<I>x</I>) → <I>α &nbsp;α</I>를 함수 <I>f</I>(<I>x</I>)의 극한값 또는 극한이라고 한다.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+	</div>
+
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2)함수의 발산</B></div>
+	<div id="sc2" class="switchcontent">
+	함수 <I>f</I>(<I>x</I>)가 수렴하지 않으면 발산이라고 한다.<BR><BR>(1) 양의 무한대로 발산<BR>함수<I>f</I>(<I>x</I>)에서 <I>x</I>의 값이 <I>a</I>에 한없이 가까워질 때, <I>f</I>(<I>x</I>)의 값이 한없이 커지면 <I>f</I>(<I>x</I>)는 양의 무한대로 발산한다고 한다.<BR><BR><img src="images/lim1.jpg" width="79" height="24" border="0">&nbsp;또는 <I>x</I> → <I>a</I>일 때, <I>f</I>(<I>x</I>) → ∞<BR><BR>(2) 음의 무한대로 발산<BR>함수<I>f</I>(<I>x</I>)에서 <I>x</I>의 값이 <I>a</I>에 한없이 가까워질 때, <I>f</I>(<I>x</I>)의 값이 음수이면서 그 절댓값이 한없이 커지면 <I>f</I>(<I>x</I>)는 음의 무한대로 발산한다.<BR><BR><img src="images/lim2.jpg" width="88" height="24" border="0">&nbsp;또는 <I>x</I> → <I>a</I>일 때, <I>f</I>(<I>x</I>) → -∞</P> 
+	</div>
+
+<div onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>3)<I>x</I> → ∞, <I>x</I> → -∞일 때, 함수의 극한</B></div>
+	<div id="sc3" class="switchcontent">
+	(1) <I>x</I>의 값이 한없이 커질 때 함수<I>f</I>(<I>x</I>)의 값이 일정한 값<I>α</I>에 한없이 가까워지질 때, 함수 <I>f</I>(<I>x</I>)는 <I>α</I>에 수렴한다고 한다.<BR><img src="images/lim3.jpg" width="84" height="24" border="0">&nbsp;또는 <I>x</I> → ∞일때<I>f</I>(<I>x</I>) → <I>α</I><BR>(2) <I>x</I>의 값이 음수이면서 그 절댓값이 한없이 커질 때 <I>f</I>(<I>x</I>)의 값이 일정한 값<I>β</I>에 한없이 가까워지면, 함수 <I>f</I>(<I>x</I>)는 <I>β</I>에 수렴한다고 한다.<BR><img src="images/lim4.jpg" width="94" height="24" border="0">&nbsp;또는 <I>x</I> → -∞일때<I>f</I>(<I>x</I>) → <I>β</I><BR>(3) 함수<I>f</I>(<I>x</I>)의 값이 양의 무한대나 음의 무한대로 발산할 때에도 각각 다음과 같은 기호를 써서 나타낸다.<BR></p>
+                <P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" align="left"><img src="images/lim5.jpg" width="345" height="27" border="0"></p>
+                <P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" align="left">&nbsp;</p>
+	</div>
+
+
+
+
+
+
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

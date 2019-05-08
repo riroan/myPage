@@ -1,0 +1,156 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+</head>
+
+<body bgcolor="#6666FF" text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<table cellspacing="0" width="185" bordercolordark="white" bordercolorlight="black" align="center" cellpadding="0" bgcolor="#CCFF99">
+
+
+
+
+ 
+<style type="text/css">
+A:link {color:#000000; text-decoration:none} 
+A:visited {color:#000000; text-decoration:none} 
+A:active {color:#000000; text-decoration:none} 
+A:hover {color:#0000ff; text-decoration:none} 
+.menutitle{
+cursor:hand;
+margin-bottom: 5px;
+background-color:#6666ff;
+color:#CCFF99;
+width:200px;
+padding:2px;
+text-align:left;
+font-weight:bold;
+/*/*/border:1px solid #FFFFFF;/* */
+}
+
+.submenu{
+margin-bottom: 0.5em;
+}
+</style>
+
+<script type="text/javascript">
+var persistmenu="yes" //"yes" or "no". 
+var persisttype="sitewide" 
+
+if (document.getElementById){ 
+document.write('<style type="text/css">\n')
+document.write('.submenu{display: none;}\n')
+document.write('</style>\n')
+}
+
+function SwitchMenu(obj){
+if(document.getElementById){
+var el = document.getElementById(obj);
+var ar = document.getElementById("masterdiv").getElementsByTagName("span"); //DynamicDrive.com change
+if(el.style.display != "block"){ 
+for (var i=0; i<ar.length; i++){
+if (ar[i].className=="submenu") 
+ar[i].style.display = "none";
+	}
+el.style.display = "block";
+}else{
+el.style.display = "none";
+	}
+}
+}
+
+function get_cookie(Name) { 
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) { 
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function onloadfunction(){
+if (persistmenu=="yes"){
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=get_cookie(cookiename)
+if (cookievalue!="")
+document.getElementById(cookievalue).style.display="block"
+}
+}
+
+function savemenustate(){
+var inc=1, blockid=""
+while (document.getElementById("sub"+inc)){
+if (document.getElementById("sub"+inc).style.display=="block"){
+blockid="sub"+inc
+break
+}
+inc++
+}
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=(persisttype=="sitewide")? blockid+";path=/" : blockid
+document.cookie=cookiename+"="+cookievalue
+}
+
+if (window.addEventListener)
+window.addEventListener("load", onloadfunction, false)
+else if (window.attachEvent)
+window.attachEvent("onload", onloadfunction)
+else if (document.getElementById)
+window.onload=onloadfunction
+
+if (persistmenu=="yes" && document.getElementById)
+window.onunload=savemenustate
+
+</script>
+
+ </HEAD> 
+
+<BODY bgcolor="#ffffff" text="#ffffff" link="#ffffff">
+
+
+
+
+<div id="masterdiv">
+
+	<div class="menutitle" onclick="SwitchMenu('sub1')">미적분의 역사</div>
+	<span class="submenu" id="sub1">
+		- <a href="http://gif00.com.ne.kr/test.html" target="_blank">미적분의 유래</a><br>
+	</span>
+
+	<div class="menutitle" onclick="SwitchMenu('sub2')">함수의 극한</div>
+	<span class="submenu" id="sub2">
+		- <a href="http://gif00.com.ne.kr/test.html">함수의 극한</a><br>
+		- <a href="http://gif00.com.ne.kr/test.html">함수의 극한 공식</a><br>
+	</span>
+
+	<div class="menutitle" onclick="SwitchMenu('sub3')">미분법</div>
+	<span class="submenu" id="sub3">
+		- <a href="http://gif00.com.ne.kr/test.html">미분이란?</a><br>
+		- <a href="http://gif00.com.ne.kr/test.html">미분법 공식</a><br>
+		- <a href="http://gif00.com.ne.kr/test.html">미분의 활용</a><br>
+	</span>
+	
+	<div class="menutitle" onclick="SwitchMenu('sub4')">적분법</div>
+	<span class="submenu" id="sub4">
+		- <a href="http://gif00.com.ne.kr/test.html">적분이란?</a><br>
+		- <a href="http://gif00.com.ne.kr/test.html">적분법 공식</a><br>
+		- <a href="http://gif00.com.ne.kr/test.html">적분과 극한</a><br>
+		- <a href="http://gif00.com.ne.kr/test.html">적분의 활용</a>
+	</span>
+</div>  <P>
+
+</BODY>
+</table>
+</body>
+</HTML>

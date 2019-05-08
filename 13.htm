@@ -1,0 +1,193 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+</head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p align="left"><a href="src/new.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">함수의 그래프</span></font></p>
+<table align="center" cellpadding="0" cellspacing="0" width="700">
+    <tr>
+        <td width="1881">
+            <script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1) 이계도함수</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">함수 <I>y</I> = <I>f</I>(<I>x</I>)에 대해 <I>f</I>′(<I>x</I>)의 도함수를 <I>f</I>(<I>x</I>)의 이계도함수라고 한다.<BR><BR><I>f</I>(<I>x</I>)의 이계도함수는 <IMG width="115" height="30" src="images/G1.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="80" origin_width="308" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174050817_IXKE3CCRW.jpg/z3_1125_f1.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1125_f1">등으로 표현한다.
+<br>
+
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2) 이계도함수와 볼록</B></div>
+	<div id="sc2" class="switchcontent">
+	<p>함수 <I>f</I>(<I>x</I>)가 어떤 구간에서 이계도함수가 존재할 때<BR>(1) <I>f</I>″(<I>x</I>) &gt; 0 ⇒ <I>f</I>′(<I>x</I>)가 증가 ⇒ 기울기가증가 ⇒ 아래로 볼록<BR>(2) <I>f</I>″(<I>x</I>) &lt; 0 ⇒ <I>f</I>′(<I>x</I>)가 감소 ⇒ 기울기가감소 ⇒ 위로 볼록<br>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>3) 이계도함수를 이용하지 않고 위로 볼록과 아래로 볼록을 판단하는 방법</B></div>
+	<div id="sc3" class="switchcontent">
+	<p>어떤 구간 안에 있는 임의의 <I>a</I>, <I>b</I>에 대해<BR>(1) <IMG width="132" height="24" src="images/G2.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="69" origin_width="382" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174054061_NM6MZUEDH.jpg/z3_1125_f2.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1125_f2">이면 <I>y</I> = <I>f</I>(<I>x</I>)는 위로 볼록<BR>(2) <IMG width="132" height="24" src="images/G3.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="69" origin_width="382" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174056421_FSTW38E94.jpg/z3_1125_f3.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1125_f3">이면 <I>y</I> = <I>f</I>(<I>x</I>)는 아래로 볼록<br>
+	</div>
+
+<br>
+<div onClick="expandcontent(this, 'sc4')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>4) 함수의 극대&middot;극소의 정의</B></div>
+	<div id="sc4" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><IMG width="224" height="131" alt="함수의 극대·극소와 그래프의 개형 본문 이미지 1" src="images/G4.jpg" data-title="" data-seq="1" desc="" hastitle="N" source="통합논술 개념어 사전" origin_height="216" origin_width="368" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174056760_JJ3ZGAFS8.jpg/z3_1126_i1.jpg?type=m4500_4500_fst_n&amp;wm=Y">
+            <P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) 함수<I>f</I>(<I>x</I>)가 <I>x</I> = <I>a</I>에서 연속이고, <I>x</I> = <I>a</I>의 왼쪽에서는 증가, 오른쪽에서는 감소하면 <I>f</I>(<I>x</I>)는 <I>x</I> = <I>a</I>에서 극대가 되고, <I>f</I>(<I>a</I>)를 극댓값이라고 한다.<BR><BR>(2) 함수 <I>f</I>(<I>x</I>)가 <I>x</I> = <I>a</I>에서 연속이고, <I>x</I> = <I>a</I>의 왼쪽에서는 감소, 오른쪽에서는 증가하면 <I>f</I>(<I>x</I>)는 <I>x</I> = <I>a</I>에서 극소가 되고, <I>f</I>(<I>a</I>)를 극솟값이라고 한다.<BR><BR>(3) 극대가 되는 점(<I>a</I>, <I>f</I>(<I>a</I>))를 극대점, 극소가 되는 점(<I>b</I>, <I>f</I>(<I>b</I>))를 극소점이라 한다.<BR>※ 극댓값, 극솟값을 함께 극값이라 한다.</P>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc5')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>5) 미분가능한 함수의 극대&middot;극소</B></div>
+	<div id="sc5" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><I>y</I> = <I>f</I>(<I>x</I>)가 미분가능한 함수라고 하면<BR>(1) <I>x</I> = <I>a</I>에서 극대 : <I>x</I> = <I>a</I> 왼쪽에서는 <I>f</I>′(<I>x</I>) &gt; 0, <I>x</I> = <I>a</I> 오른쪽에서는 <I>f</I>′ &lt; 0<BR>(2) <I>x</I> = <I>a</I>에서 극소 : <I>x</I> = <I>a</I> 왼쪽에서는 <I>f</I>′(<I>x</I>) &lt; 0, <I>x</I> = <I>a</I> 오른쪽에서는 <I>f</I>′(<I>x</I>) &gt; 0</P>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc6')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>6) 극값에서의 미분계수</B></div>
+	<div id="sc6" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">미분가능한 함수<I>f</I>(<I>x</I>)가 <I>x</I> = <I>a</I>에서 극값을 가지면 <I>f</I>″(<I>x</I>) = 0이다. 역은 성립하지 않는다.</P>
+        </div>
+<br>
+<div onClick="expandcontent(this, 'sc7')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>7) 이계도함수를 이용한 극값의 판정</B></H4>
+	<div id="sc7" class="switchcontent">
+            <P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">이계도함수를 갖는 함수<I>f</I>(<I>x</I>)에 대하여 <I>f</I>″(<I>a</I>) = 0일 때,<BR>(1) <I>f</I>″(<I>a</I>) ＞이면 <I>x</I> = <I>a</I>에서 <I>f</I>(<I>x</I>)는 극소이다.<BR>(2) <I>f</I>″(<I>a</I>) ＜ 0이면 <I>x</I> = <I>a</I>에서 <I>f</I>(<I>x</I>)는 극대이다.</P>
+	</div></td>
+    </tr>
+</table>
+</body>
+
+</html>

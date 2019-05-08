@@ -1,0 +1,208 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>top</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<script language="JavaScript">
+<!--
+function namosw_init_float_layers()
+{
+  var name;
+  var layer;
+  var i;
+  var j;
+
+  var is_ns4 = navigator.appName.indexOf('Netscape', 0) != -1 && !document.getElementById;
+  var is_ns6 = (navigator.appName.indexOf('Netscape', 0) != -1 && document.getElementById);
+
+  j = 0;
+  document._float_layers = new Array(Math.max(1, namosw_init_float_layers.arguments.length/2));
+  for (i = 0; i < namosw_init_float_layers.arguments.length; i += 2) {
+    name  = namosw_init_float_layers.arguments[i];
+    if (name == '')
+      return;
+
+    if (is_ns4) {
+      layer = document.layers[name];
+      layer._fl_pos_left = layer.left;
+      layer._fl_pos_top  = layer.top;
+    } else if (is_ns6) {
+      layer = document.getElementById(name);
+      layer._fl_pos_left = parseInt(layer.style.left);
+      layer._fl_pos_top  = parseInt(layer.style.top);
+    } else {
+      layer = document.all[name];
+      layer._fl_pos_left = layer.style.pixelLeft;
+      layer._fl_pos_top  = layer.style.pixelTop;
+    }
+
+    layer._fl_pos = namosw_init_float_layers.arguments[i+1];
+    if (layer)
+      document._float_layers[j++] = layer;
+  }
+
+  document._fl_interval = setInterval('namosw_process_float_layers()', 200);
+}
+
+function namosw_page_width()
+{
+  var is_ns4 = navigator.appName.indexOf('Netscape', 0) != -1 && !document.getElementById;
+  var is_ns6 = (navigator.appName.indexOf('Netscape', 0) != -1 && document.getElementById);
+
+  return (is_ns4 || is_ns6) ? innerWidth  : document.body.clientWidth;
+}
+
+function namosw_page_height()
+{
+  var is_ns4 = navigator.appName.indexOf('Netscape', 0) != -1 && !document.getElementById;
+  var is_ns6 = (navigator.appName.indexOf('Netscape', 0) != -1 && document.getElementById);
+
+  return (is_ns4 || is_ns6) ? innerHeight : document.body.clientHeight;
+}
+
+function namosw_process_float_layers()
+{
+  var is_ns4 = navigator.appName.indexOf('Netscape', 0) != -1 && !document.getElementById;
+  var is_ns6 = (navigator.appName.indexOf('Netscape', 0) != -1 && document.getElementById);
+
+  if (document._float_layers) {
+      var i;
+      var layer;
+      for (i = 0; i < document._float_layers.length; i++) {
+	  layer = document._float_layers[i];
+	  if (is_ns4) {
+	    if (layer._fl_pos == 1)
+	      layer.left = layer._fl_pos_left + window.pageXOffset;
+	    else if (layer._fl_pos == 2 || layer._fl_pos == 5) 
+	      layer.left = window.pageXOffset;
+	    else if (layer._fl_pos == 3 || layer._fl_pos == 6) 
+	      layer.left = window.pageXOffset + (namosw_page_width() - layer.clip.width)/2;
+	    else
+	      layer.left = window.pageXOffset + namosw_page_width() - layer.clip.width - 16;
+	    if (layer._fl_pos == 1)
+	      layer.top = layer._fl_pos_top + window.pageYOffset;
+	    else if (layer._fl_pos == 2 || layer._fl_pos == 3 || layer._fl_pos == 4)
+	      layer.top = window.pageYOffset;
+	    else
+	      layer.top  = window.pageYOffset + namosw_page_height() - layer.clip.height;
+	  } else if (is_ns6) {
+	    if (layer._fl_pos == 1)
+	      layer.style.left = layer._fl_pos_left + window.pageXOffset;
+	    else if (layer._fl_pos == 2 || layer._fl_pos == 5)
+	      layer.style.left = window.pageXOffset;
+	    else if (layer._fl_pos == 3 || layer._fl_pos == 6)
+	      layer.style.left = window.pageXOffset + (namosw_page_width() - parseInt(layer.style.width))/2;
+	    else
+	      layer.style.left = window.pageXOffset + namosw_page_width()  - parseInt(layer.style.width);
+	    if (layer._fl_pos == 1)
+	      layer.style.top = layer._fl_pos_top + document.body.scrollTop;
+	    else if (layer._fl_pos == 2 || layer._fl_pos == 3 || layer._fl_pos == 4)
+	      layer.style.top = window.pageYOffset;
+	    else
+	      layer.style.top  = window.pageYOffset + namosw_page_height() - parseInt(layer.style.height);
+          }
+          else {
+	    if (layer._fl_pos == 1)
+	      layer.style.pixelLeft = layer._fl_pos_left + document.body.scrollLeft;
+	    else if (layer._fl_pos == 2 || layer._fl_pos == 5)
+	      layer.style.pixelLeft = document.body.scrollLeft;
+	    else if (layer._fl_pos == 3 || layer._fl_pos == 6)
+	      layer.style.pixelLeft = document.body.scrollLeft + (namosw_page_width() - layer.style.pixelWidth)/2;
+	    else
+	      layer.style.pixelLeft = document.body.scrollLeft + namosw_page_width()  - layer.style.pixelWidth;
+	    if (layer._fl_pos == 1)
+	      layer.style.pixelTop = layer._fl_pos_top + document.body.scrollTop;
+	    else if (layer._fl_pos == 2 || layer._fl_pos == 3 || layer._fl_pos == 4)
+	      layer.style.pixelTop = document.body.scrollTop;
+	    else
+	      layer.style.pixelTop  = document.body.scrollTop  + namosw_page_height() - layer.style.pixelHeight;
+         }
+      }
+  }
+}
+
+// -->
+</script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red" OnLoad="namosw_init_float_layers('layer1', 1);">
+<p><a name="top">top</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#middle">middle</a> &nbsp;| &nbsp;<a href="#down">down</a></p>
+<div id="layer1" style="width:50px; height:50px; position:absolute; left:960px; top:726px; z-index:1;">
+    <p><a href="#top"><img src="images/sign_handicap.gif" width="50" height="50" border="0" alt="sign_handicap.gif"></a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a name="middle">middle</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="test.htm#top">top</a> &nbsp;| &nbsp;<a href="test.htm#down">down</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a name="down">down</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="test.htm#top">top</a> &nbsp;| &nbsp;<a href="test.htm#middle">middle</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

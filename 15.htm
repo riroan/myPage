@@ -1,0 +1,198 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+</head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p align="left"><a href="14.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">적분법 공식</span></font></p>
+<table align="center" cellspacing="0" width="700" border="1" bordercolordark="white" bordercolorlight="black">
+    <tr>
+        <td width="1881">
+            <p align="center"><b><a href="16.htm" target="_main">치환적분법과 부분적분법</a></b></p>
+        </td>
+    </tr>
+</table>
+<table align="center" cellpadding="0" cellspacing="0" width="700">
+    <tr>
+        <td width="1881">
+
+            <script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1) <I>x</I><SUP>n</SUP>의 부정적분</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><IMG width="382" height="30" src="images/1.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="67" origin_width="855" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174119347_9NIZM9JV3.jpg/z3_1128_f5.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f5">
+<br>
+
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2) 부정적분의 성질</B></div>
+	<div id="sc2" class="switchcontent">
+	<p>(1) <IMG width="253" height="30" src="images/2.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="557" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174121042_8T7RHY5FB.jpg/z3_1128_f6.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f6"><BR>(2) <IMG width="294" height="30" src="images/3.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="647" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174121614_4FNWPEJRR.jpg/z3_1128_f7.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f7"><BR>(3) <IMG width="294" height="30" src="images/4.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="647" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174123011_BHAKQMN6P.jpg/z3_1128_f8.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f8"><br>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>3) 정적분의 성질</B></div>
+	<div id="sc3" class="switchcontent">
+	<p>(1) <IMG width="86" height="30" src="images/5.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="74" origin_width="214" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174151500_KCJD08M74.jpg/z3_1131_f3.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f3"><BR>(2) <IMG width="144" height="30" src="images/6.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="79" origin_width="380" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174152097_OZXQRJBCN.jpg/z3_1131_f4.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f4"><BR>(3) <IMG width="146" height="30" src="images/7.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="79" origin_width="386" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174152373_NOTLHL0LQ.jpg/z3_1131_f5.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f5">(단, <I>k</I>는 상수)<BR>(4) <IMG width="238" height="30" src="images/8.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="85" origin_width="675" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174154671_WE6ETQAOY.jpg/z3_1131_f6.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f6">(복호동순)<BR>(5) <IMG width="208" height="30" src="images/9.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="79" origin_width="549" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174156817_7O1VDVBIT.jpg/z3_1131_f7.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f7">(단, <I>c</I>는 임의의 실수)<br>
+	</div>
+
+<br>
+<div onClick="expandcontent(this, 'sc4')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>4) 정적분의 응용</B></div>
+	<div id="sc4" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) 함수 <I>f</I>(<I>x</I>)가 기함수(<I>f</I>(-<I>x</I>) = -<I>f</I>(<I>x</I>))이면 <IMG width="92" height="30" src="images/10.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="74" origin_width="229" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174157646_9O93SKYV2.jpg/z3_1131_f8.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f8"><BR>(2) 함수 <I>f</I>(<I>x</I>)가 우함수(<I>f</I>(-<I>x</I>) = <I>f</I>(<I>x</I>))이면 <IMG width="157" height="30" src="images/11.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="74" origin_width="389" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174157819_IYHAHPKA2.jpg/z3_1131_f9.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f9"><BR>(3) <IMG width="147" height="30" src="images/12.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="78" origin_width="384" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174157952_WZZK8NT62.jpg/z3_1131_f10.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f10"><BR>(4) <IMG width="158" height="30" src="images/13.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="75" origin_width="397" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174158320_T9FMFVEZ2.jpg/z3_1131_f11.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f11"></P>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc5')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>5) 삼각함수의 부정적분</B></div>
+	<div id="sc5" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <IMG width="151" height="30" src="images/14.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="333" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174207160_OWQ4PN5MA.jpg/z3_1132_f7.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f7"><BR>(2) <IMG width="140" height="30" src="images/15.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="310" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174207527_CDBERJ97V.jpg/z3_1132_f8.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f8"><BR>(3) <IMG width="148" height="30" src="images/16.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="326" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174207601_D58CWYYHD.jpg/z3_1132_f9.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f9"><BR>(4) <IMG width="168" height="30" src="images/17.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="370" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174209368_7TNQOQQ8N.jpg/z3_1132_f10.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f10"><BR>(5) <IMG width="175" height="30" src="images/18.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="385" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174210769_4W9RKQV2B.jpg/z3_1132_f11.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f11"><BR>(6) <IMG width="205" height="30" src="images/19.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="453" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174211378_QP079VMA7.jpg/z3_1132_f12.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f12"><BR>(7) <IMG width="169" height="30" src="images/20.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="373" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174211913_2GFUQHOVG.jpg/z3_1132_f13.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f13"></P>
+	</div>
+<br>
+
+<div onClick="expandcontent(this, 'sc6')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>6) 지수함수의 부정적분</B></div>
+	<div id="sc6" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <IMG width="113" height="30" src="images/21.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="250" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174212669_54I4HWYWB.jpg/z3_1132_f14.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f14"><BR>(2) <IMG width="120" height="30" src="images/22.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="69" origin_width="276" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174213154_VAVOPUK99.jpg/z3_1132_f15.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1132_f15"></P>
+	</div>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

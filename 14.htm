@@ -1,0 +1,196 @@
+﻿<html>
+
+<head>
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p align="left"><a href="src/new.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">적분이란?</span></font></p>
+<table align="center" cellspacing="0" width="700" border="1" bordercolordark="white" bordercolorlight="black">
+    <tr>
+        <td width="623">
+            <p align="center"><b><a href="15.htm" target="_main">적분법 공식</a></b></p>
+        </td>
+        <td width="623">
+            <p align="center"><b><a href="17.htm" target="_main">적분과 극한</a></b></p>
+        </td>
+        <td width="623">
+            <p align="center"><b><a href="18.htm" target="_main">적분의 활용</a></b></p>
+        </td>
+    </tr>
+</table>
+<table align="center" cellpadding="0" cellspacing="0" width="700">
+    <tr>
+        <td width="1881">
+            <H4 class="num" id="TABLE_OF_CONTENT2">&nbsp;</H4>
+            <script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1) 부정적분의 정의</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) 함수<I>F</I>(<I>x</I>)의 도함수가<I>f</I>(<I>x</I>)이면 <I>F</I>(<I>x</I>)를 <I>f</I>(<I>x</I>)의 부정적분 또는 원시함수라고 하고, <IMG width="93" height="24" src="images/I1.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="256" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174117227_D886YPPRL.jpg/z3_1128_f1.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f1" lowsrc="http://terms.naver.com/">로 나타낸다.<BR><BR>(2) 상수 <I>C</I>를 미분하면 0이 되므로, 함수<I>f</I>(<I>x</I>)의 부정적분은 여러개이다. 그중 하나를 <I>F</I>(<I>x</I>)라 하면, <I>f</I>(<I>x</I>)의 임의의 부정적분은 <IMG width="117" height="24" src="images/I2.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="66" origin_width="322" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174117465_8MN7WPCEF.jpg/z3_1128_f2.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f2" lowsrc="http://terms.naver.com/">(<I>C</I>는 상수) 로 나타낼 수 있다. 이때, <I>C</I>를 적분상수, 함수<I>f</I>(<I>x</I>)를 피적분함수라고 한다.<BR><BR>(3) 함수<I>f</I>(<I>x</I>)의 부정적분을 구하는 것을 적분한다고 말한다.
+<br>
+
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2) 부정적분과 미분의 관계</B></div>
+	<div id="sc2" class="switchcontent">
+	<p>(1) <IMG width="149" height="30" src="images/I3.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="80" origin_width="398" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174117509_V9HHH4F7J.jpg/z3_1128_f3.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f3" lowsrc="http://terms.naver.com/"><BR>(2) <IMG width="140" height="30" src="images/I4.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="69" origin_width="323" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174118388_BXO6AVT5W.jpg/z3_1128_f4.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1128_f4" lowsrc="http://terms.naver.com/"><br>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>3) 정적분</B></div>
+	<div id="sc3" class="switchcontent">
+	<p>함수 <I>y</I> = <I>f</I>(<I>x</I>)가 구간 [<I>a</I>, <I>b</I>]에서 연속이면,<BR><IMG width="480" height="40" src="images/I5.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="83" origin_width="996" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174135806_IEOJY9WQ5.jpg/z3_1130_f1.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1130_f1" lowsrc="http://terms.naver.com/"><BR>로 정의하고, <I>a</I>는 정적분의 아래끝, <I>b</I>는 정적분의 위끝이라고 한다.<br>
+	</div>
+
+<br>
+<div onClick="expandcontent(this, 'sc4')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>4) 정적분과 미분의 관계</B></div>
+	<div id="sc4" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <IMG width="122" height="30" src="images/I6.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="77" origin_width="314" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174150857_0A419CZIH.jpg/z3_1131_f1.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f1" lowsrc="http://terms.naver.com/"><BR>(2) <IMG width="192" height="30" src="images/I7.jpg" hastitle="N" source="통합논술 개념어 사전" origin_height="78" origin_width="501" origin_src="http://dbscthumb.phinf.naver.net/2780_000_1/20140310174151226_59Y0R3QQ6.jpg/z3_1131_f2.jpg?type=m4500_4500_fst&amp;wm=N" source_mobile="통합논술 개념어 사전" data-image-id="concept_term_linkable_data_db^CP00055568$z3_1131_f2" lowsrc="http://terms.naver.com/"></P>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc5')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>5) 정적분과 넓이의 관계</B></div>
+	<div id="sc5" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">넓이는 항상 양의 값을 같는다. 구분구적법을 이용하여 넓이나 부피를 구할 때 <I>f</I>(<I>x</I>) ≧ 0라는 조건이 있었지만 정적분은 <I>f</I>(<I>x</I>)의 부호와 상관없이 정의된다. 정적분은 음수값이 되기도 한다</P>
+	</div>
+</td>
+    </tr>
+</table>
+</body>
+
+</html>

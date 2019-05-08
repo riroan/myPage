@@ -1,0 +1,188 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+</head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p align="left"><a href="7.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">미분법 공식</span></font></p>
+<table align="center" cellpadding="0" cellspacing="0" width="700">
+    <tr>
+        <td width="1881" height="141">
+            <script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1) 미분법의 기본공식</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <I>y</I> = <I>c</I>(<I>c</I>는 상수) <I>y</I>′ = 0<BR>(2) <I>y</I> = <I>x</I><SUP>n</SUP>(n은 자연수) <I>y</I>′ = <I><SPAN class="word_dic en">nx</SPAN></I><SUP><I>n</I>-1</SUP><BR>(3) <I>y</I> = <I><SPAN class="word_dic en">cf</SPAN></I>(<I>x</I>) (<I>c</I>는 상수) <I>y</I>′ = <I><SPAN class="word_dic en">cf</SPAN></I>′(<I>x</I>)<BR>(4) <I>y</I> = <I>f</I>(<I>x</I>) &plusmn; <I>g</I>(<I>x</I>) <I>y</I>′ = <I>f</I>′(<I>x</I>) &plusmn; <I>g</I>′(<I>x</I>) (복호동순)<BR>(5) <I>y</I> = <I>f</I>(<I>x</I>)<I>g</I>(<I>x</I>) <I>y</I>′ = <I>f</I>′(<I>x</I>)<I>g</I>(<I>x</I>) + <I>f</I>(<I>x</I>)<I>g</I>′(<I>x</I>)<BR>(6) <I>y</I> = <I>f</I>(<I>x</I>)<I>g</I>(<I>x</I>)<I>h</I>(<I>x</I>) <I>y</I>′ = <I>f</I>′(<I>x</I>)<I>g</I>(<I>x</I>)<I>h</I>(<I>x</I>) + <I>f</I>(<I>x</I>)<I>g</I>′(<I>x</I>)<I>h</I>(<I>x</I>) + <I>f</I>(<I>x</I>)<I>g</I>(<I>x</I>)<I>h</I>′(<I>x</I>)<BR>(7) <img src="images/f1.jpg" width="51" height="30" border="0"><img src="images/f2.jpg" width="148" height="30" border="0">
+<br>
+
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2) 합성함수의 미분법</B></div>
+	<div id="sc2" class="switchcontent">
+	<p><I>y</I> = {<I>f</I>(<I>x</I>)}<SUP>n</SUP>을 <I>x</I>에 관하여 미분하면 <I>y</I>′ = <I>n</I>{<I>f</I>(<I>x</I>)}<SUP><I>n</I>-1</SUP>&middot;<I>f</I>′(<I>x</I>) 이다.<br>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc3')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>3) 역함수의 미분법</B></div>
+	<div id="sc3" class="switchcontent">
+	<p>함수<I>y</I> = <I>f</I>(<I>x</I>)가 미분가능하고 그 역함수가 <I>x</I> = <I>g</I>(<I>y</I>)이면 <img src="images/in1.jpg" width="60" height="50" border="0"> 또는 <img src="images/in2.jpg" width="86" height="30" border="0"><br>
+	</div>
+
+<br>
+<div onClick="expandcontent(this, 'sc4')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>4) 삼각함수의 미분법</B></div>
+	<div id="sc4" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <I>y</I> = <SPAN class="word_dic en">sin</SPAN><I>x</I> → <I>y</I>′ = <SPAN class="word_dic en">cos</SPAN><I>x</I><BR>(2) <I>y</I> = <SPAN class="word_dic en">cos</SPAN><I>x</I> → <I>y</I>′ = -<SPAN class="word_dic en">sin</SPAN><I>x</I><BR>(3) <I>y</I> = <SPAN class="word_dic en">tan</SPAN><I>x</I> → <I>y</I>′ = <SPAN class="word_dic en">sec</SPAN><SUP>2</SUP><I>x</I><BR>(4) <I>y</I> = <SPAN class="word_dic en">cot</SPAN><I>x</I> → <I>y</I>′ = -<SPAN class="word_dic en">cosec</SPAN><SUP>2</SUP><I>x</I><BR>(5) <I>y</I> = <SPAN class="word_dic en">sec</SPAN><I>x</I> → <I>y</I>′ = <SPAN class="word_dic en">sec</SPAN><I>x</I> <SPAN class="word_dic en">tan</SPAN><I>x</I><BR>(6) <I>y</I> = <SPAN class="word_dic en">cosec</SPAN><I>x</I> → <I>y</I>′ = -<SPAN class="word_dic en">cosec</SPAN><I>x</I> <SPAN class="word_dic en">cot</SPAN><I>x</I><BR></P>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc5')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>5) 지수함수의 미분법</B></div>
+	<div id="sc5" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <I>y</I> = <I>a</I><SUP>x</SUP> → <I>y</I>′ = <I>a</I><SUP>x</SUP>(<SPAN class="word_dic en">ln</SPAN><I>a</I>)(단, <I>a</I> ≠ 1, <I>a</I> ＞ 0)<BR>(2) <I>y</I> = <I>e</I><SUP>x</SUP> → <I>y</I>′ = <I>e</I><SUP>x</SUP><BR></P>
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc6')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>6) 로그함수의 미분법</B></div>
+	<div id="sc6" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">(1) <img src="images/log1.jpg" width="109" height="30" border="0"><BR>(2) <img src="images/log2.jpg" width="146" height="30" border="0"><br></P>
+	</div>
+<br>
+    </tr>
+</table>
+</body>
+
+</html>

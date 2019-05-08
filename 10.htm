@@ -1,0 +1,168 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>미분과적분</title>
+<meta name="generator" content="Namo WebEditor v6.0">
+<meta name="author" content="Kim MyeongKi">
+<meta name="keywords" content="유래, 극한, 미분, 적분, 활용">
+<meta name="classification" content="수학">
+</head>
+
+<body text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+<p align="left"><a href="src/new.htm" target="_main"><img src="images/back.PNG" width="40" height="40" border="0"></a></p>
+<p align="center"><font face="굵은안상수체"><span style="font-size:40pt;">접선의 방정식</span></font></p>
+<table align="center" cellpadding="0" cellspacing="0" width="700">
+    <tr>
+        <td width="1385">
+            <script type="text/javascript">
+var enablepersist="on" //쿠키사용 on 미사용 off
+var collapseprevious="no" //yes : 하나 확장되면 다른건 확장 안됨, no : 전체 다 확장할 수 있슴..
+
+var contractsymbol='- ' //확장시 기호 (이미지 대체 가능)
+var expandsymbol='+ ' //미확장시 기호 (이미지 대체 가능)
+
+
+if (document.getElementById){
+	document.write('<style type="text/css">')
+	document.write('.switchcontent{display:none;padding-left:12px;}')
+	document.write('</style>')
+}
+
+function getElementbyClass(rootobj, classname){
+	var temparray=new Array()
+	var inc=0
+	for (i=0; i<rootobj.length; i++){
+	if (rootobj[i].className==classname)
+		temparray[inc++]=rootobj[i]
+	}
+	return temparray
+}
+
+
+function contractcontent(omit){
+	var inc=0
+	while (ccollect[inc]){
+	if (ccollect[inc].id!=omit)
+		ccollect[inc].style.display="none"
+		inc++
+	}
+}
+
+function expandcontent(curobj, cid){
+	var spantags=curobj.getElementsByTagName("SPAN")
+	var showstateobj=getElementbyClass(spantags, "showstate")
+	if (ccollect.length>0){
+	if (collapseprevious=="yes")
+		contractcontent(cid)
+		document.getElementById(cid).style.display=(document.getElementById(cid).style.display!="block")? "block" : "none"
+	if (showstateobj.length>0){ //if "showstate" span exists in header
+	if (collapseprevious=="no")
+		showstateobj[0].innerHTML=(document.getElementById(cid).style.display=="block")? contractsymbol : expandsymbol
+	else
+		revivestatus()
+		}
+	}
+}
+
+function revivecontent(){
+	contractcontent("omitnothing")
+	selectedItem=getselectedItem()
+	selectedComponents=selectedItem.split("|")
+	for (i=0; i<selectedComponents.length-1; i++)
+		document.getElementById(selectedComponents[i]).style.display="block"
+}
+
+function revivestatus(){
+	var inc=0
+	while (statecollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		statecollect[inc].innerHTML=contractsymbol
+	else
+		statecollect[inc].innerHTML=expandsymbol
+		inc++
+	}
+}
+
+function get_cookie(Name) { 
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search)
+	if (offset != -1) { 
+		offset += search.length
+		end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+		returnvalue=unescape(document.cookie.substring(offset, end))
+		}
+	}
+	return returnvalue;
+}
+
+function getselectedItem(){
+	if (get_cookie(window.location.pathname) != ""){
+		selectedItem=get_cookie(window.location.pathname)
+	return selectedItem
+	}
+	else
+	return ""
+}
+
+function saveswitchstate(){
+	var inc=0, selectedItem=""
+	while (ccollect[inc]){
+	if (ccollect[inc].style.display=="block")
+		selectedItem+=ccollect[inc].id+"|"
+		inc++
+	}
+document.cookie=window.location.pathname+"="+selectedItem
+}
+
+function do_onload(){
+	uniqueidn=window.location.pathname+"firsttimeload"
+	var alltags=document.all? document.all : document.getElementsByTagName("*")
+		ccollect=getElementbyClass(alltags, "switchcontent")
+		statecollect=getElementbyClass(alltags, "showstate")
+	if (enablepersist=="on" && ccollect.length>0){
+		document.cookie=(get_cookie(uniqueidn)=="")? uniqueidn+"=1" : uniqueidn+"=0" 
+		firsttimeload=(get_cookie(uniqueidn)==1)? 1 : 0 //check if this is 1st page load
+	if (!firsttimeload)
+		revivecontent()
+	}
+	if (ccollect.length>0 && statecollect.length>0)
+		revivestatus()
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", do_onload, false)
+	else if (window.attachEvent)
+		window.attachEvent("onload", do_onload)
+	else if (document.getElementById)
+		window.onload=do_onload
+
+	if (enablepersist=="on" && document.getElementById)
+		window.onunload=saveswitchstate
+</script>
+</head>
+<body>
+
+
+
+<div onClick="expandcontent(this, 'sc1')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>1) 미분계수와 기울기</B></div>
+	<div id="sc1" class="switchcontent">
+	<P class="txt" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">미분계수는 <img src="images/line1.jpg" width="83" height="30" border="0">로 정의할 수 있고 평면에서 직선의 기울기는 <img src="images/line2.jpg" width="23" height="30" border="0">로 정의하므로 곡선 위의 어느 한점에서의 미분계수는 그 점에서의 접선의 기울기를 나타낸다. 따라서 곡선 <I>y</I> = <I>f</I>(<I>x</I>) 위의 점(<I>x</I><SUB>1</SUB>, <I>y</I><SUB>1</SUB>)에서의 접선의 기울기는 <I>f</I>′(<I>x</I><SUB>1</SUB>)이다.width="148" height="30" border="0">
+<br>
+
+	</div>
+<br>
+<div onClick="expandcontent(this, 'sc2')" style="cursor:hand; cursor:pointer"><span class="showstate"></span><B>2) 접선의 방정식</B></div>
+	<div id="sc2" class="switchcontent">
+	<p><b>(1) 곡선 위의 한 점에서 접선 그리기</b><BR>오른쪽 그림에서 곡선 <I>y</I> = <I>f</I>(<I>x</I>) 위의 점 (<I>x</I><SUB>1</SUB>, <I>y</I><SUB>1</SUB>)에서의 접선의 방정식은 <I>y</I> - <I>y</I><SUB>1</SUB> = <I>f</I>′(<I>x</I><SUB>1</SUB>)(<I>x</I> - <I>x</I><SUB>1</SUB>)이며 가장 기본적인 형태의 접선이다.<BR><BR>선 <I>y</I> = <I>f</I>(<I>x</I>) 위의 점 (<I>x</I><SUB>1</SUB>, <I>y</I><SUB>1</SUB>)에서의 법선의 방정식은 <img src="images/line3.jpg" width="143" height="30" border="0">이다.<BR><BR><b>(2) 기울기를 알고 있는 상태에서 접선 그리기</b><BR>곡선 <I>y</I> = <I>f</I>(<I>x</I>) 에 기울기가 <I>m</I>인 접선을 구하는 방법은 <I>f</I>′(<I>x</I>) = <I>m</I> 인 <I>x</I>를 구하여 접점 (<I>x</I><SUB>1</SUB>, <I>y</I><SUB>1</SUB>)을 찾아낸 후 <I>y</I> - <I>y</I><SUB>1</SUB> = <I>f</I>′(<I>x</I><SUB>1</SUB>)(<I>x</I> - <I>x</I><SUB>1</SUB>)로서 구한다.<BR><BR><b>(3) 곡선 밖의 한 점에서 접선 그리기</b><BR>곡선 <I>y</I> = <I>f</I>(<I>x</I>)의 밖의 한 점 (<I>a</I>, <I>b</I>)에서 접선을 그렸을 때의 접점을 (<I>x</I><SUB>1</SUB>, <I>y</I><SUB>1</SUB>)라고 한다면 <I>y</I> - <I>y</I><SUB>1</SUB> = <I>f</I>′(<I>x</I><SUB>1</SUB>)(<I>x</I> - <I>x</I><SUB>1</SUB>)는 (<I>a</I>, <I>b</I>)를 지나므로 <I>b</I> - <I>y</I><SUB>1</SUB> = <I>f</I>′(<I>x</I><SUB>1</SUB>)(<I>a</I> - <I>x</I><SUB>1</SUB>)의 방정식을 풀어 (<I>x</I><SUB>1</SUB>, <I>y</I><SUB>1</SUB>)를 찾아낸 후 <I>y</I> - <I>y</I><SUB>1</SUB> = <I>f</I>′(<I>x</I><SUB>1</SUB>)(<I>x</I> - <I>x</I><SUB>1</SUB>)로서 접선의 방정식을 구한다.<br>
+	</div>
+<br>
+</td>
+    </tr>
+</table>
+</body>
+
+</html>
